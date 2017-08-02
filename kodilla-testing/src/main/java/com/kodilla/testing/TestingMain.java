@@ -17,7 +17,6 @@ public class TestingMain {
             System.out.println(("Error!"));
         }
 
-
     // calculator test
 
         Calculator simpleCalculator = new Calculator();
@@ -31,10 +30,10 @@ public class TestingMain {
             System.out.println("ERROR!");
         }
 
-        int susbtract = simpleCalculator.substractBFromA(10, 10);
-        int predictedDifference = 0;
+        int subtract = simpleCalculator.substractBFromA(15, 10);
+        int predictedDifference = 5;
 
-        if (susbtract == predictedDifference) {
+        if (subtract == predictedDifference) {
             System.out.println("test OK");
         } else {
             System.out.println(("ERROR!"));
