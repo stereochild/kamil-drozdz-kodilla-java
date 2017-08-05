@@ -5,15 +5,15 @@ import java.util.List;
 
 public class OddNumbersExterminator {
 
-    public void exterminate(ArrayList<Integer> numbers){
+    public List<Integer> exterminate(ArrayList<Integer> numbers){
         int counter = 0;
-        List<Integer> oddList = new ArrayList<>();
-        for(int i = 1; i <numbers.size(); i++) {
+        List<Integer> evenList = new ArrayList<>();
+        for(int i = 0; i <numbers.size(); i++) {
             counter = numbers.get(i);
             if(counter % 2 == 0) {
-                oddList.add(counter);
-                System.out.println(counter);
+                evenList.add(counter);
             }
         }
+        return evenList;
     }
 }
