@@ -1,8 +1,12 @@
 package com.kodilla.testing.shape;
 
 import org.junit.*;
+import sun.security.provider.SHA;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class ShapeCollectorTestSuite {
 
@@ -25,47 +29,61 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testAddShape() {
         //Given
-        ShapeCollector myShape = new ShapeCollector(new Circle());
+        ShapeCollector myShape = new ShapeCollector();
+        Circle circle = new Circle();
         //When
-        myShape.addFigure(new Circle());
+        myShape.addFigure(circle);
         //Then
-        Assert.assertEquals(1, myShape.shapes.size());
-
+        assertEquals(1, myShape.shapes.size());
     }
 
     @Test
     public void testRemoveShape() {
         //Given
-        ShapeCollector myShape = new ShapeCollector(new Triangle());
-        myShape.addFigure(new Triangle());
+        ShapeCollector myShape = new ShapeCollector();
+        Triangle triangle = new Triangle();
+        myShape.addFigure(triangle);
         //When
-        boolean result = myShape.removeFigure(new Triangle());
+        boolean result = myShape.removeFigure(triangle);
         //Then
         Assert.assertTrue(result);
-        Assert.assertEquals(0, myShape.shapes.size());
+        assertEquals(0, myShape.shapes.size());
     }
 
     @Test
     public void testGetFigure() {
         //Given
-        ShapeCollector myShape = new ShapeCollector(new Square());
-        myShape.addFigure(new Square);
+        ShapeCollector myShape = new ShapeCollector();
+        Square square = new Square();
+        myShape.addFigure(square);
         //When
-        ShapeCollector retrievedFigure = myShape.getFigure(0);
+        Shape retrievedFigure = myShape.getFigure(0);
         //Then
-        Assert.assertEquals(myShape, retrievedFigure);
+        assertEquals(square, retrievedFigure);
     }
 
    @Test
-    public void testShowFigure() {
+    public void testShowFigures() {
         //Given
         ShapeCollector myShape = new ShapeCollector();
-        myShape.addFigure(new Circle());
-        myShape.addFigure(new Square());
-        myShape.addFigure(new Triangle());
-        //When
-        myShape.showFigures();
-        //Then
 
+        Triangle triangle = new Triangle();
+        Square square = new Square();
+        Circle circle = new Circle();
+
+        List<Shape> expectedList = new ArrayList<>();
+        expectedList.add(triangle);
+        expectedList.add(square);
+        expectedList.add(circle);
+
+        myShape.addFigure(triangle);
+        myShape.addFigure(square);
+        myShape.addFigure(circle);
+
+        //When
+        List<Shape> showMeWhatYouGot = myShape.showFigures();
+
+        //Then
+        assertEquals(expectedList, showMeWhatYouGot);
     }
 }
