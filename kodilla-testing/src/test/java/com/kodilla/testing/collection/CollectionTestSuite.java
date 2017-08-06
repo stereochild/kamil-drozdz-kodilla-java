@@ -39,16 +39,19 @@ public class CollectionTestSuite {
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
 
         ArrayList<Integer> expectedList = new ArrayList<>();
-        for (int i = 0; i < 11; i++) {
-            if (i % 2 == 0) {
-                expectedList.add(i);
-            }
-        }
+            expectedList.add(2);
+            expectedList.add(144);
+            expectedList.add(10);
+            expectedList.add(58);
 
         ArrayList<Integer> theList = new ArrayList<>();
-        for (int i = 0; i < 11; i++) {
-            theList.add(i);
-        }
+            theList.add(2);
+            theList.add(5);
+            theList.add(53);
+            theList.add(144);
+            theList.add(241);
+            theList.add(10);
+            theList.add(58);
 
         //When
         List<Integer> actualList = exterminator.exterminate(theList);
