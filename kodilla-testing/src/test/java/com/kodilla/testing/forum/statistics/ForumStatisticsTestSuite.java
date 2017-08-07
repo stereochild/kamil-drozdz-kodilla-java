@@ -77,6 +77,7 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(0.0, forumStatistics.getCommentsPerUserAverage(), 0.01);
         Assert.assertEquals(0.0, forumStatistics.getCommentsPerPostAverage(), 0.01);
     }
+
     @Test
     public void testZeroComments() {
         //Given
@@ -102,6 +103,7 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(0.0, forumStatistics.getCommentsPerUserAverage(), 0.01);
         Assert.assertEquals(0.0, forumStatistics.getCommentsPerPostAverage(), 0.01);
     }
+
     @Test
     public void testCommentsMoreThanPosts() {
         //Given
@@ -153,6 +155,7 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(71.00, forumStatistics.getCommentsPerUserAverage(), 0.01);
         Assert.assertEquals(2.53, forumStatistics.getCommentsPerPostAverage(), 0.01);
     }
+
     @Test
     public void testZeroUsers() {
         //Given
