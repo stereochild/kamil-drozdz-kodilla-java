@@ -13,7 +13,7 @@ public class ForumStatisticsTestSuite {
     private static int testCounter = 0;
 
     @BeforeClass
-    public static void beforeAllTests() {
+    public static void beforeClass() {
         System.out.println("Start of the tests.");
     }
     @AfterClass
