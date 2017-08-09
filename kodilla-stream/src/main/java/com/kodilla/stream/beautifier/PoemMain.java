@@ -1,8 +1,5 @@
 package com.kodilla.stream.beautifier;
 
-import static jdk.nashorn.internal.objects.NativeString.toLowerCase;
-import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
-
 public class PoemMain {
 
     public static void main(String[] args) {
