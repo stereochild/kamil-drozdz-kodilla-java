@@ -147,7 +147,7 @@ public class BoardTestSuite {
            .mapToInt(n -> Period.between(n.getCreated(), LocalDate.now()).getDays())
            .average()
            .getAsDouble();
-       //Then
+      //Then
        Assert.assertEquals(10, averageDaysFromTaskGiven, 0.1);
 
    }
