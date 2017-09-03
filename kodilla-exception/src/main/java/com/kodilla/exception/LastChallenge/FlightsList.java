@@ -5,9 +5,10 @@ import java.util.Map;
 
 public class FlightsList{
 
-    public static final Map<String, Boolean> flights = new HashMap<>();
+    public Map<String, Boolean> flights;
 
-    static {
+    public FlightsList(){
+        this.flights = new HashMap<>();
         flights.put("Warsaw", true);
         flights.put("Radom", true);
         flights.put("Modlin", true);
@@ -18,12 +19,10 @@ public class FlightsList{
         flights.put("Ciechocinek", false);
     }
 
-    public boolean findFlight(Flight flight) throws RouteNotFoundException  {
+    public boolean findFlight(Flight flight) throws RouteNotFoundException{
 
         if(!flights.containsKey(flight.getDepartureAirport()) || !flights.containsKey(flight.getArrivalAirport())){
         throw new RouteNotFoundException("Flight not found.");
-        }
-
-        return flights.get(flight.getDepartureAirport()) & flights.get(flight.getArrivalAirport());
+        }return flights.get(flight.getDepartureAirport()) & flights.get(flight.getArrivalAirport());
     }
 }
