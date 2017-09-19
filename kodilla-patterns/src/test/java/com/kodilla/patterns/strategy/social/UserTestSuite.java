@@ -6,7 +6,7 @@ import org.junit.Test;
 public class UserTestSuite {
     @Test
     public void testDefaultSharingStrategies() {
-        //Given
+
         User rick = new Millenials("Rick");
         User morty = new ZGeneration("Morty");
         User summer = new YGeneration("Summer");
