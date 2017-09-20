@@ -4,7 +4,7 @@ public final class ShoppingTask implements Task {
     private final String taskName;
     private final String whatToBuy;
     private final double quantity;
-    boolean executedTask = true;
+    boolean executedTask = false;
 
     public ShoppingTask(final String taskName, final String whatToBuy, final double quantity) {
         this.taskName = taskName;
@@ -13,8 +13,9 @@ public final class ShoppingTask implements Task {
     }
 
     @Override
-    public String executeTask() {
-        return "Task done: Buy " + whatToBuy + " " + quantity;
+    public void executeTask() {
+        System.out.println("Task done: Buy " + whatToBuy + " " + quantity);
+        executedTask = true;
     }
 
     @Override
