@@ -23,15 +23,15 @@ public class TaskListDaoTestSuite {
         //Given
         TaskList taskList = new TaskList(DESCRIPTION, LISTNAME);
         taskListDao.save(taskList);
-        String names = taskList.getListName();
+        String listName = taskList.getListName();
         //When
-        List<TaskList> readNames = taskListDao.findByListName(names);
+        List<TaskList> taskLists = taskListDao.findByListName(listName);
         //Then
-        Assert.assertEquals(1, readNames.size());
-        Assert.assertEquals(LISTNAME, readNames.get(0).getListName());
-        Assert.assertEquals(DESCRIPTION, readNames.get(0).getDescription());
+        Assert.assertEquals(1, taskLists.size());
+        Assert.assertEquals(LISTNAME, taskLists.get(0).getListName());
+        Assert.assertEquals(DESCRIPTION, taskLists.get(0).getDescription());
         //CleanUp
-        int id = readNames.get(0).getId();
+        int id = taskLists.get(0).getId();
         taskListDao.delete(id);
 
     }
