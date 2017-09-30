@@ -26,8 +26,8 @@ public class Product {
     public int getId() {return id;}
 
     @Column(name = "PRODUCT_NAME")
-    public String getName() {return name;
-    }
+    public String getName() {return name;}
+
     @OneToMany(
             targetEntity = Item.class,
             mappedBy = "product",
@@ -36,11 +36,7 @@ public class Product {
     )
     public List<Item> getItems() {return items;}
 
-    private void setId(int id) {
-        this.id = id;
-    }
-    private void setName(String name) {
-        this.name = name;
-    }
+    private void setId(int id) {this.id = id;}
+    private void setName(String name) {this.name = name;}
     private void setItems(List<Item> items) {this.items = items;}
 }

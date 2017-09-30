@@ -23,6 +23,7 @@ public class FlightsList{
 
         if(!flights.containsKey(flight.getDepartureAirport()) || !flights.containsKey(flight.getArrivalAirport())){
         throw new RouteNotFoundException("Flight not found.");
-        }return flights.get(flight.getDepartureAirport()) & flights.get(flight.getArrivalAirport());
+        }
+        return flights.get(flight.getDepartureAirport()) && flights.get(flight.getArrivalAirport());
     }
 }

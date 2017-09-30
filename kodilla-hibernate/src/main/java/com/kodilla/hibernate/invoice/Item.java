@@ -51,5 +51,5 @@ public class Item {
     private void setPrice(BigDecimal price) {this.price = price;}
     private void setQuantity(int quantity) {this.quantity = quantity;}
     private void setValue(BigDecimal value) {this.value = value;}
-    private void setInvoice(Invoice invoice) {this.invoice = invoice;}
+    public void setInvoice(Invoice invoice) {this.invoice = invoice;}
 }
