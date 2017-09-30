@@ -52,12 +52,12 @@ public class ComapnyDaoTestSuite {
         Assert.assertNotEquals(0, greyMatterId);
 
         //CleanUp
-        //try {
-      //  companyDao.delete(softwareMachineId);
-      //  companyDao.delete(dataMaestersId);
-      //  companyDao.delete(greyMatterId);
-      //  } catch (Exception e) {
+        try {
+        companyDao.delete(softwareMachineId);
+        companyDao.delete(dataMaestersId);
+        companyDao.delete(greyMatterId);
+        } catch (Exception e) {
         //do nothing
-    //}
+        }
     }
 }
