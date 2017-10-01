@@ -9,11 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ComapnyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
+    EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany() {
@@ -59,5 +63,45 @@ public class ComapnyDaoTestSuite {
         } catch (Exception e) {
         //do nothing
         }
+    }
+
+    @Test
+    public void testRetrieveEmployeeByLastname() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Company softwareMachine = new Company("Software Machine");
+
+        johnSmith.getCompanies().add(softwareMachine);
+        softwareMachine.getEmployees().add(johnSmith);
+
+        employeeDao.save(johnSmith);
+        int johnId = johnSmith.getId();
+
+        //When
+        List<Employee> employeeLastname = employeeDao.retrieveEmployeeByLastname("Smith");
+        //Then
+        Assert.assertEquals(1, employeeLastname.size());
+        //CleanUp
+        employeeDao.delete(johnId);
+
+    }
+
+    @Test
+    public void testRetrieveCompanyByName() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Company softwareMachine = new Company("Software Machine");
+        johnSmith.getCompanies().add(softwareMachine);
+        softwareMachine.getEmployees().add(johnSmith);
+
+        companyDao.save(softwareMachine);
+        int softwareId = softwareMachine.getId();
+
+        //When
+        List<Company> companyName = companyDao.retrieveCompanyByName("Sof");
+        //Then
+        Assert.assertEquals(1, companyName.size());
+        //CleanUp
+        companyDao.delete(softwareId);
     }
 }
