@@ -69,13 +69,20 @@ public class ComapnyDaoTestSuite {
     public void testRetrieveEmployeeByLastname() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarkson = new Employee("Stephanie", "Clarkson");
+
         Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
 
         johnSmith.getCompanies().add(softwareMachine);
+        stephanieClarkson.getCompanies().add(softwareMachine);
         softwareMachine.getEmployees().add(johnSmith);
+        softwareMachine.getEmployees().add(stephanieClarkson);
 
         employeeDao.save(johnSmith);
         int johnId = johnSmith.getId();
+        employeeDao.save(stephanieClarkson);
+        int stephanieId = stephanieClarkson.getId();
 
         //When
         List<Employee> employeeLastname = employeeDao.retrieveEmployeeByLastname("Smith");
@@ -83,6 +90,7 @@ public class ComapnyDaoTestSuite {
         Assert.assertEquals(1, employeeLastname.size());
         //CleanUp
         employeeDao.delete(johnId);
+        employeeDao.delete(stephanieId);
 
     }
 
@@ -90,12 +98,20 @@ public class ComapnyDaoTestSuite {
     public void testRetrieveCompanyByName() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarkson = new Employee("Stephanie", "Clarkson");
+
         Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+
         johnSmith.getCompanies().add(softwareMachine);
         softwareMachine.getEmployees().add(johnSmith);
+        johnSmith.getCompanies().add(dataMaesters);
+        dataMaesters.getEmployees().add(johnSmith);
 
         companyDao.save(softwareMachine);
         int softwareId = softwareMachine.getId();
+        companyDao.save(dataMaesters);
+        int dataId = dataMaesters.getId();
 
         //When
         List<Company> companyName = companyDao.retrieveCompanyByName("Sof");
@@ -103,5 +119,6 @@ public class ComapnyDaoTestSuite {
         Assert.assertEquals(1, companyName.size());
         //CleanUp
         companyDao.delete(softwareId);
+        companyDao.delete(dataId);
     }
 }
