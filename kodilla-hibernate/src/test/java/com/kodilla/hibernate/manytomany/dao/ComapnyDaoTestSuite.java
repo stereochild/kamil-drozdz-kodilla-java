@@ -61,7 +61,7 @@ public class ComapnyDaoTestSuite {
         companyDao.delete(dataMaestersId);
         companyDao.delete(greyMatterId);
         } catch (Exception e) {
-        //do nothing
+            //do nothing
         }
     }
 
