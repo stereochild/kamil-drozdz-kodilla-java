@@ -1,15 +1,14 @@
-package com.kodilla.hibernate.manytomany;
+package com.kodilla.patterns2.facade.employees;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQuery(
-        name = "Company.retrieveCompanyByName",
-        //query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :COMPANY_NAME",
-        query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE :COMPANY_NAME",
-        resultClass = Company.class
+@NamedQuery(
+    name = "Company.retrieveCompanyNameByScrap",
+    query = "FROM Company WHERE name LIKE :COMPANY_NAME"
 )
 
 @Entity
@@ -23,8 +22,8 @@ public class Company {
     }
 
     public Company(String name) {
-        this.name = name;
-    }
+            this.name = name;
+        }
 
     @Id
     @GeneratedValue
@@ -43,3 +42,4 @@ public class Company {
     public void setName(String name) {this.name = name;}
     public void setEmployees(List<Employee> employees) {this.employees = employees;}
 }
+

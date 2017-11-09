@@ -13,7 +13,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ComapnyDaoTestSuite {
+public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
     @Autowired
@@ -121,7 +121,7 @@ public class ComapnyDaoTestSuite {
         int dataId = dataMaesters.getId();
 
         //When
-        List<Company> companyName = companyDao.retrieveCompanyByName("Dat");
+        List<Company> companyName = companyDao.retrieveCompanyByName("%ware%");
 
         //Then
         Assert.assertEquals(1, companyName.size());
