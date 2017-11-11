@@ -25,10 +25,10 @@ public final class EmployeeFacade {
 
     public List<Company> retrieveCompanyNameByScrap(String name) throws NameFindException {
         LOGGER.info("Searching for company.");
-        List<Company> companyName = companyDao.retrieveCompanyNameByScrap(name);
-        if(companyName != null) {
+        List<Company> companyName = companyDao.retrieveCompanyNameByScrap("%" + name + "%");
+        if(!companyName.isEmpty()) {
             LOGGER.info("Company " + name + " found");
-            return companyDao.retrieveCompanyNameByScrap("%" + name + "%");
+            return companyName;
         } else {
             LOGGER.error(NameFindException.ERROR_COMPANY_NOT_FOUND);
             throw new NameFindException(NameFindException.ERROR_COMPANY_NOT_FOUND);
@@ -37,10 +37,10 @@ public final class EmployeeFacade {
 
     public List<Employee> retrieveEmployeeNameByScrap(String lastname) throws NameFindException {
         LOGGER.info("Searching for employee");
-        List<Employee> employeeName = employeeDao.retrieveEmployeeNameByScrap(lastname);
-        if(employeeName != null) {
+        List<Employee> employeeName = employeeDao.retrieveEmployeeNameByScrap("%" + lastname + "%");
+        if(!employeeName.isEmpty()) {
             LOGGER.info("Employee " + lastname + " found");
-            return employeeDao.retrieveEmployeeNameByScrap("%" + lastname + "%");
+            return employeeName;
         } else {
             LOGGER.error(NameFindException.ERROR_EMPLOYEE_NOT_FOUND);
             throw new NameFindException(NameFindException.ERROR_EMPLOYEE_NOT_FOUND);

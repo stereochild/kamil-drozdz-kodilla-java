@@ -40,10 +40,10 @@ public class EmployeeFacadeTestSuite {
         int greyMatterId = greyMatter.getId();
 
         //When
-        List<Company> scrapName = employeeFacade.retrieveCompanyNameByScrap("ma");
+        List<Company> scrapName = employeeFacade.retrieveCompanyNameByScrap("tt");
 
         //Then
-        Assert.assertEquals(3, scrapName.size());
+        Assert.assertEquals(1, scrapName.size());
         //CleanUp
         try {
             companyDao.delete(softwareMachineId);
@@ -69,10 +69,10 @@ public class EmployeeFacadeTestSuite {
         int kovalskyId = lindaKovalsky.getId();
 
         //When
-        List<Employee> scrapName = employeeFacade.retrieveEmployeeNameByScrap("ar");
+        List<Employee> scrapName = employeeFacade.retrieveEmployeeNameByScrap("a");
 
         //Then
-        Assert.assertEquals(1, scrapName.size());
+        Assert.assertEquals(2, scrapName.size());
 
         //CleanUp
         try {
