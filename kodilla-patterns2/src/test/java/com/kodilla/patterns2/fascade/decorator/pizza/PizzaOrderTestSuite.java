@@ -33,7 +33,7 @@ public class PizzaOrderTestSuite {
     public void testExpressDeliveryGetCost() {
         //Given
         PizzaOrder theOrder = new BasicPizzaOrder();
-        theOrder = new ExpressDelivery(theOrder);
+        theOrder = new ExpressDeliveryDecorator(theOrder);
         System.out.println(theOrder.getCost());
         //When
         BigDecimal theCost = theOrder.getCost();
@@ -45,7 +45,7 @@ public class PizzaOrderTestSuite {
     public void testExpressDeliveryGetDescription() {
         //Given
         PizzaOrder theOrder = new BasicPizzaOrder();
-        theOrder = new ExpressDelivery(theOrder);
+        theOrder = new ExpressDeliveryDecorator(theOrder);
         System.out.println(theOrder.getDescription());
         //When
         String description = theOrder.getDescription();
@@ -57,8 +57,8 @@ public class PizzaOrderTestSuite {
     public void testThickCrustAndExtraSauceGetCost() {
         //Given
         PizzaOrder theOrder = new BasicPizzaOrder();
-        theOrder = new ThickCrust(theOrder);
-        theOrder = new ExtraSauce(theOrder);
+        theOrder = new ThickCrustDecorator(theOrder);
+        theOrder = new ExtraSauceDecorator(theOrder);
         System.out.println(theOrder.getCost());
         //When
         BigDecimal theCost = theOrder.getCost();
@@ -70,8 +70,8 @@ public class PizzaOrderTestSuite {
     public void testThickCrustAndExtraSauceGetDescription() {
         //Given
         PizzaOrder theOrder = new BasicPizzaOrder();
-        theOrder = new ThickCrust(theOrder);
-        theOrder = new ExtraSauce(theOrder);
+        theOrder = new ThickCrustDecorator(theOrder);
+        theOrder = new ExtraSauceDecorator(theOrder);
         System.out.println(theOrder.getDescription());
         //When
         String description = theOrder.getDescription();
@@ -83,9 +83,9 @@ public class PizzaOrderTestSuite {
     public void testAllToppingsGetCost() {
         //Given
         PizzaOrder theOrder = new BasicPizzaOrder();
-        theOrder = new ExtraCheese(theOrder);
-        theOrder = new Vegatables(theOrder);
-        theOrder = new Meat(theOrder);
+        theOrder = new ExtraCheeseDecorator(theOrder);
+        theOrder = new VegatablesDecorator(theOrder);
+        theOrder = new MeatDecorator(theOrder);
         System.out.println(theOrder.getCost());
         //When
         BigDecimal theCost = theOrder.getCost();
@@ -97,9 +97,9 @@ public class PizzaOrderTestSuite {
     public void testAllToppingsGetDescription() {
         //Given
         PizzaOrder theOrder = new BasicPizzaOrder();
-        theOrder = new ExtraCheese(theOrder);
-        theOrder = new Vegatables(theOrder);
-        theOrder = new Meat(theOrder);
+        theOrder = new ExtraCheeseDecorator(theOrder);
+        theOrder = new VegatablesDecorator(theOrder);
+        theOrder = new MeatDecorator(theOrder);
         System.out.println(theOrder.getDescription());
         //When
         String description = theOrder.getDescription();
