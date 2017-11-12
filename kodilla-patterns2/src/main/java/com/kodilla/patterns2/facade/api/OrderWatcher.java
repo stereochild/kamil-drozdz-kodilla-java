@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 public class OrderWatcher {
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderWatcher.class);
 
-    @Before("execution(* com.kodilla.patterns2.facade.api.OrderFacade.processOrder(..))" + "&& this(object)")
+    @Before("execution(* com.kodilla.patterns2.facade.api.OrderFacade.processOrder(..))" + "&& target(object)")
     public void LogEvent(Object object) {
-        LOGGER.info("Processing order: " + object.getClass().getName());
+        LOGGER.info("Started method from class: " + object.getClass().getName());
     }
 }
