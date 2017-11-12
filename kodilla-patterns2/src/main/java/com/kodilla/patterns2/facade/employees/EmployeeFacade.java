@@ -23,6 +23,14 @@ public final class EmployeeFacade {
     @Autowired
     EmployeeDao employeeDao;
 
+//    public List<Company> retrieveCompanyNameByScrap(String name) {
+//        return companyDao.retrieveCompanyNameByScrap("%" + name + "%");
+//    }
+//
+//    public List<Employee> retrieveEmployeeNameByScrap(String name) {
+//        return employeeDao.retrieveEmployeeNameByScrap("%" + name + "%");
+//    }
+
     public List<Company> retrieveCompanyNameByScrap(String name) throws NameFindException {
         LOGGER.info("Searching for company.");
         List<Company> companyName = companyDao.retrieveCompanyNameByScrap("%" + name + "%");
